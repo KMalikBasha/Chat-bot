@@ -59,12 +59,12 @@ stages:
     displayName: 'Deploy'
     pool:
       vmImage: 'ubuntu-latest'
-    environment: 'myrepo.kube-node-lease' # Ensure this matches the environment name set up in Azure DevOps
+    environment: 'myrepo.kube-node-lease' 
     strategy:
       runOnce:
         deploy:
           steps:
-          - checkout: self # This ensures that the repository contents are available
+          - checkout: self 
           - task: KubernetesManifest@0
             displayName: 'Deploy to Kubernetes cluster'
             inputs:
