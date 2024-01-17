@@ -1,0 +1,13 @@
+
+# Generate a base docker image for tomcat server with jdk 1.8
+docker build -t chatbot-base:latest -f base.Dockerfile .
+
+#Load a app data
+docker build -t chatbot:latest  -f chatbot.Dockerfile .
+
+#To run docker app
+docker-compose up -d
+
+#Sample command
+docker build -t chatbot-base:latest .
+

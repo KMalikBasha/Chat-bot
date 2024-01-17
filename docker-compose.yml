@@ -1,0 +1,15 @@
+version: '3'
+services:
+  rsl-chatbot:
+    image: 'chatbot:latest'
+    volumes:
+      - './config:/usr/local/config'
+    ports: 
+      - "8080:8080"
+    restart: unless-stopped
+    healthcheck:
+      test: curl --fail http://localhost:8080/ || exit 1
+      start_period: 120s
+      interval: 10s
+      timeout: 10s
+      retries: 5
